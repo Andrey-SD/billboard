@@ -8,63 +8,51 @@
     <title>{{ config('app.name', 'BillBoard') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
+    @stack('styles')
 </head>
 <body>
-	<div id="app">
-		<nav class="navbar navbar-default navbar-static-top">
-			<div class="container">
-				<div class="navbar-header">
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#app-navbar-collapse" aria-expanded="false">
-						<span class="sr-only">Toggle Navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
-					<a class="navbar-brand" href="{{ url('/') }}">{{ config('app.name', 'BillBoard') }}</a>
-				</div>
-				<div class="collapse navbar-collapse" id="app-navbar-collapse">
-					<ul class="nav navbar-nav">&nbsp;</ul>
-					<ul class="nav navbar-nav navbar-right">
-						@guest
-							<form class="auth" method="POST" action="{{ route('login') }}">
-								{{ csrf_field() }}
-								<input id="name" type="name" name="name" value="{{ old('name') }}" placeholder="Имя" required>
-								@if ($errors->has('name'))
-									<span class="help-block">
-										<strong>{{ $errors->first('name') }}</strong>
-									</span>
-								@endif
-								<input id="password" type="password" name="password" placeholder="Пароль" required >
-								@if ($errors->has('password'))
-									<span class="help-block">
-										<strong>{{ $errors->first('password') }}</strong>
-									</span>
-								@endif
-								<button type="submit"></button>
-							</form>
-							@else
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-							{{ csrf_field() }}
-							</form>
-							<li class="dropdown">
-								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" v-pre>
-									<span>Здравствуйте </span>{{ Auth::user()->name }} <span class="caret"></span>
+	<header>
+		<div class="row">
+			<div class="col-md-6 col-sm-6">
+				<a href="{{ url('/') }}" class="title">{{ config('app.name', 'BillBoard') }}</a>
+			</div>
+			<div class="col-md-6 col-sm-6">
+				<div class="log-panel">
+					@guest
+								<form class="auth" method="POST" action="{{ route('login') }}">
+									{{ csrf_field() }}
+									<input id="name" type="text" name="name" value="{{ old('name') }}" placeholder="Имя" required>
+									@if ($errors->has('name'))
+										<span class="help-block">
+											<strong>{{ $errors->first('name') }}</strong>
+										</span>
+									@endif
+									<input id="password" type="password" name="password" placeholder="Пароль" required >
+									@if ($errors->has('password'))
+										<span class="help-block">
+											<strong>{{ $errors->first('password') }}</strong>
+										</span>
+									@endif
+									<br>
+									<button type="submit">Вход / Регистрация</button>
+								</form>
+								@else
+								<span class="name">{{ Auth::user()->name }}</span>
+								<a href="{{ route('logout') }}" title="Выйти" onclick="event.preventDefault();document.getElementById('logout-form').submit();">
+									<img src="{{ asset('img/dev/logout.svg') }}" width="25" height="25" border="0" alt="Выйти">
 								</a>
-								<ul class="dropdown-menu">
-									<li>
-										<a href="{{ route('logout') }}" onclick="event.preventDefault();document.getElementById('logout-form').submit();">Выйти</a>
-										<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-										{{ csrf_field() }}
-										</form>
-									</li>
-								</ul>
-							</li>
-						@endguest
-					</ul>
+								<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+									{{ csrf_field() }}
+								</form>
+								<br>
+								<a href="{{ asset('/create') }}" class="create-add">Добавить объявление</a>
+							@endguest
 				</div>
 			</div>
-		</nav>
-	</div>
+		</div>
+	</header>
+	@yield('content')
+	
 <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

@@ -18,6 +18,10 @@ Route::get('/', function () {
 //Auth::routes();
 
 
+Route::get('/create','CreateAdvertController@showCreateForm')->middleware('auth');
+
+Route::post('/create','CreateAdvertController@create')->middleware('auth');
+
 Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
 Route::post('/login','AuthLoginController@login')->name('login');
