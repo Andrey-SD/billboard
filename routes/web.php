@@ -11,13 +11,15 @@
 |
 */
 
-//Route::get('/', function () {
-//    return view('home');
-//});
+Route::get('/test', function () {
+    return view('welcome');
+});
 
-//Auth::routes();
-//Route::get('/','HomeController@index');
 Route::get('/','Frontend\DefaultController@index');
+
+Route::get('/show/${id}','Frontend\ShowAdvertController@show');
+
+Route::get('/delete/${id}','Frontend\DeleteAdvertController@delete')->middleware('auth');
 
 Route::get('/edit','Frontend\EditAdvertController@showCreateForm')->middleware('auth');
 
@@ -26,7 +28,3 @@ Route::post('/edit','Frontend\EditAdvertController@edit')->middleware('auth');
 Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
 Route::post('/login','Auth\AuthLoginController@login')->name('login');
-
-//Route::post('/register','AuthLoginController@login')->name('register');
-//
-//Route::get('/register','AuthLoginController@login')->name('register');

@@ -4,11 +4,10 @@
 @endpush
 @section('content')
 <section>
-	@foreach ($adverts as $advert)
 	<div>
 		<div class="div-ad">
 			<a href="{{ asset('/show/$').$advert->id }}">{{ $advert->title }}</a>
-			<p class="descript">{{ $advert->description }}</p>
+			<p>{{ $advert->description }}</p>
 			
 			<time datetime="{{ $advert->created_at }}">{{ $advert->created_at }}</time>
 			<p class="author-name">{{ $advert->author_name }}</p>
@@ -23,10 +22,5 @@
 		
 		
 	</div>
-	@endforeach
-	<div class='pagination-div'>
-		{{ $adverts->links() }}
-	</div>
-	
 </section>
 @endsection

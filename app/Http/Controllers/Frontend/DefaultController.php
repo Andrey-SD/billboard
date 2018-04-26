@@ -10,7 +10,7 @@ class DefaultController extends Controller
 {
     public function index()
 	{
-		$adverds = Advert::orderBy('created_at', 'desc')->simplePaginate(5);
-        return view('home',['adverds'=>$adverds]);
+		$adverts = Advert::orderBy('created_at', 'desc')->simplePaginate(5);
+        return view('home',['adverts'=>$adverts]);
 	}
 }

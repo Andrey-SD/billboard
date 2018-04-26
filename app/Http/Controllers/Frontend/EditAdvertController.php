@@ -18,11 +18,11 @@ class EditAdvertController extends Controller
 	
 	public function edit(Request $request)
 	{
-		Advert::insert(array(
+		$new_advert = Advert::create(array(
 		  'title'  => $request->title,
 		  'description' => $request->description,
 		  'author_name' => Auth::user()->name
 		));
-		return view('welcome');
+		return redirect('/show/$'.$new_advert->id);
 	}
 }

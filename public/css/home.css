@@ -1,4 +1,4 @@
-.div-ad p:nth-child(2){
+.descript{
 	height: 3em;
 }
 
@@ -29,9 +29,8 @@ section>div:not(.pagination-div){
 }
 
 .div-ad>*{
-/*	white-space: nowrap;*/
 	text-overflow: ellipsis;
-    overflow: hidden; /* Обрезаем содержимое */
+    overflow: hidden;
 }
 
 .author-name:before{
@@ -40,7 +39,6 @@ section>div:not(.pagination-div){
 
 .edit-butt{
 	padding: 5px;
-	
 }
 
 time:before{
