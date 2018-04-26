@@ -12,7 +12,8 @@ class AuthLoginController extends Controller
 {
     public function login(Request $request)
 	{
-        if (!User::find($request->name)) {
+		$user = User::where('name', $request->name)->first();
+        if ($user === null) {
             User::insert(array(
                 'name'  => $request->name,
 				'password' => Hash::make($request->password)
