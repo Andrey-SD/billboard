@@ -11,20 +11,21 @@
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
+//Route::get('/', function () {
+//    return view('home');
+//});
 
 //Auth::routes();
+//Route::get('/','HomeController@index');
+Route::get('/','Frontend\DefaultController@index');
 
+Route::get('/edit','Frontend\EditAdvertController@showCreateForm')->middleware('auth');
 
-Route::get('/create','CreateAdvertController@showCreateForm')->middleware('auth');
-
-Route::post('/create','CreateAdvertController@create')->middleware('auth');
+Route::post('/edit','Frontend\EditAdvertController@edit')->middleware('auth');
 
 Route::post('/logout','Auth\LoginController@logout')->name('logout');
 
-Route::post('/login','AuthLoginController@login')->name('login');
+Route::post('/login','Auth\AuthLoginController@login')->name('login');
 
 //Route::post('/register','AuthLoginController@login')->name('register');
 //

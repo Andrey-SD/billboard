@@ -1,0 +1,48 @@
+.div-ad p:nth-child(2){
+	height: 3em;
+}
+
+section>div,.div-ad{
+	border-radius: 10px;
+	padding: 15px;
+}
+
+section>div:not(.pagination-div){
+	background-image: url(../img/dev/background_ad.jpg);
+	margin-bottom: 15px;
+}
+
+.pagination-div{
+	width: 100%;
+	text-align: center;
+}
+
+.div-ad a:first-child{
+	font-size: 30px;
+	display: block;
+	border-bottom: 1px solid #636b6f;
+	margin-bottom: 5px;
+}
+
+.div-ad{
+	background-color: white;
+}
+
+.div-ad>*{
+/*	white-space: nowrap;*/
+	text-overflow: ellipsis;
+    overflow: hidden; /* Обрезаем содержимое */
+}
+
+.author-name:before{
+	content: "Автор: ";
+}
+
+.edit-butt{
+	padding: 5px;
+	
+}
+
+time:before{
+	content: "Дата публикации: ";
+}

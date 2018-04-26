@@ -36,8 +36,11 @@ header h1:before{
     content: url('../img/dev/pointer.svg');
 }
 
-.title:hover{
+a:hover{
 	text-decoration: none;
+}
+
+.title:hover{
 	color: #a67e4a;
 }
 
@@ -59,6 +62,9 @@ header h1:before{
 
 .create-add, button{
 	display: block;
+}
+
+.create-add, button, .edit-butt{
 	width: 100%;
 	background-color: #a67e4a;
 	border: 1px solid black;
@@ -67,13 +73,12 @@ header h1:before{
 	text-align: center;
 }
 
-.create-add:hover{
+.create-add:hover, .edit-butt:hover{
 	color: white;
-	text-decoration: none;
 }
 
 section{
-	margin-top: 30px !important;
+	margin-top: 60px !important;
 	width: 800px;
 	margin: 0 auto;
 }

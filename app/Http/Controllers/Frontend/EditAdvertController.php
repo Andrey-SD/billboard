@@ -1,28 +1,28 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Frontend;
 
-use User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Advert;
+use App\Http\Controllers\Controller;
 
-class CreateAdvertController extends Controller
+
+
+class EditAdvertController extends Controller
 {
     public function showCreateForm()
 	{
-		return view('create');
+		return view('edit');
 	}
 	
-	public function create(Request $request)
+	public function edit(Request $request)
 	{
-//		echo $request->title.'<br>';
-//		echo $request->description.'<br>';
-//		echo  Auth::user()->name.'<br>';
 		Advert::insert(array(
 		  'title'  => $request->title,
 		  'description' => $request->description,
 		  'author_name' => Auth::user()->name
 		));
+		return view('welcome');
 	}
 }
