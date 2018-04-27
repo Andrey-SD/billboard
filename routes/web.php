@@ -19,16 +19,23 @@ Route::get('/','Frontend\DefaultController@index');
 
 Route::get('/show/${id}','Frontend\ShowAdvertController@show');
 
-Route::get('/delete/${id}','Frontend\DeleteAdvertController@delete')->middleware('auth');
+Route::get('/delete/${id}','Frontend\DeleteAdvertController@delete')
+    ->middleware('auth');
 
-Route::get('/create','Frontend\CreateAdvertController@showCreateForm')->middleware('auth');
+Route::get('/create','Frontend\CreateAdvertController@showCreateForm')
+    ->middleware('auth');
 
-Route::post('/create','Frontend\CreateAdvertController@create')->middleware('auth');
+Route::post('/create','Frontend\CreateAdvertController@create')
+    ->middleware('auth');
 
-Route::get('/edit/${id}','Frontend\EditAdvertController@showEditForm')->middleware('auth');
+Route::get('/edit/${id}','Frontend\EditAdvertController@showEditForm')
+    ->middleware('auth');
 
-Route::post('/edit/${id}','Frontend\EditAdvertController@edit')->middleware('auth');
+Route::post('/edit/${id}','Frontend\EditAdvertController@edit')
+    ->middleware('auth');
 
-Route::post('/logout','Auth\LoginController@logout')->name('logout');
+Route::post('/logout','Auth\LoginController@logout')
+    ->name('logout');
 
-Route::post('/login','Auth\AuthLoginController@login')->name('login');
+Route::post('/login','Auth\AuthLoginController@login')
+    ->name('login');

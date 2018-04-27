@@ -18,8 +18,8 @@ class CreateAdvertTable extends Migration
             $table->text('title');
             $table->text('description');
             $table->string('author_name');
-            $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
-            
+            $table->timestamp('created_at')
+                ->default(DB::raw('CURRENT_TIMESTAMP'));
         });
     }
 

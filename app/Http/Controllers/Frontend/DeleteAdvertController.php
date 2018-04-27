@@ -9,9 +9,8 @@ use App\Models\Advert;
 class DeleteAdvertController extends Controller
 {
     public function delete($id)
-	{
-		Advert::find($id)->delete();
-		return redirect('/');	
-	}
-	
+    {
+        Advert::find($id)->delete();
+        return redirect('/');	
+    }
 }
