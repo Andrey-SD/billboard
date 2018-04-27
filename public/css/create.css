@@ -14,5 +14,14 @@ input, textarea{
 }
 
 textarea{
-	height: 100px;
+	height: 300px;
+}
+
+.row>div{
+	padding: 3px !important;
+}
+
+.edit-butt{
+	display: block;
+	padding: 5px;
 }

@@ -2,27 +2,24 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use App\Models\Advert;
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
-
 
 class EditAdvertController extends Controller
 {
-    public function showCreateForm()
+    public function showEditForm($id)
 	{
-		return view('edit');
+		$advert = Advert::find($id);
+		return view('edit',['advert' => $advert]);
 	}
 	
-	public function edit(Request $request)
+	public function edit($id, Request $request)
 	{
-		$new_advert = Advert::create(array(
-		  'title'  => $request->title,
-		  'description' => $request->description,
-		  'author_name' => Auth::user()->name
-		));
-		return redirect('/show/$'.$new_advert->id);
+		$advert = Advert::find($id);
+		$advert->title = $request->title;
+		$advert->description = $request->description;
+		$advert->save();
+		return redirect('/show/$'.$id);
 	}
 }

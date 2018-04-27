@@ -45,7 +45,7 @@
 						{{ csrf_field() }}
 					</form>
 					<br>
-					<a href="{{ asset('/edit') }}" class="create-add">Добавить объявление</a>
+					<a href="{{ asset('/create') }}" class="create-add">Добавить объявление</a>
 					@endguest
 				</div>
 			</div>
