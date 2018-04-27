@@ -11,10 +11,6 @@
 |
 */
 
-Route::get('/test', function () {
-    return view('welcome');
-});
-
 Route::get('/','Frontend\DefaultController@index');
 
 Route::get('/show/${id}','Frontend\ShowAdvertController@show');

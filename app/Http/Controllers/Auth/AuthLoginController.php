@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace Billboard\Http\Controllers\Auth;
 
 use Auth;
-use App\User;
+use Billboard\User;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Billboard\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 
 class AuthLoginController extends Controller
 {
     public function login(Request $request)
     {
+        $this->validate($request, [
+            'name' => 'required',
+            'password' => 'required'
+        ]);
         $user = User::where('name', $request->name)->first();
         if ($user === null) {
             User::insert(array(
@@ -20,7 +24,10 @@ class AuthLoginController extends Controller
             ));
         }
         $credentials = $request->only('name', 'password');
-        Auth::attempt($credentials);
-        return redirect()->intended('/');
+        if (Auth::attempt($credentials)) {
+            return redirect()->intended('/');
+        } else {
+            return redirect('/')->withInput();
+        }
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Billboard\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

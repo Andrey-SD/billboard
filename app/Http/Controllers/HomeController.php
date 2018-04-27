@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace Billboard\Http\Controllers;
 
-use App\Models\Advert;
+use Billboard\Models\Advert;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller

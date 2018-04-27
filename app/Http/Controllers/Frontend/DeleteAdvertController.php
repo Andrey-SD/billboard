@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace Billboard\Http\Controllers\Frontend;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Advert;
+use Billboard\Http\Controllers\Controller;
+use Billboard\Models\Advert;
 
 class DeleteAdvertController extends Controller
 {

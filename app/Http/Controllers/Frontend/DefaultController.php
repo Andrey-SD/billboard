@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace Billboard\Http\Controllers\Frontend;
 
-use App\Models\Advert;
+use Billboard\Models\Advert;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Billboard\Http\Controllers\Controller;
 
 class DefaultController extends Controller
 {

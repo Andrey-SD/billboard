@@ -1,16 +1,21 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace Billboard\Http\Controllers\Frontend;
 
-use App\Models\Advert;
+use Billboard\Models\Advert;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Billboard\Http\Controllers\Controller;
 
 class ShowAdvertController extends Controller
 {
     public function show($id)
     {
         $advert = Advert::find($id);
-        return view('show', ['advert' => $advert]);
+        if (!empty($advert->id)) {
+            return view('show', ['advert' => $advert]);
+        } else {
+            abort(404);
+        }
+        
     }
 }

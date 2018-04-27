@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace Billboard\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

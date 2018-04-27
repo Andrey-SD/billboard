@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'BillBoard') }}</title>
+    <title>{{ config('app.name') }}</title>
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     @stack('styles')
@@ -15,7 +15,7 @@
     <div class="row">
         <div class="col-md-6 col-sm-6">
             <a href="{{ url('/') }}" class="title">
-            {{ config('app.name', 'BillBoard') }}
+            {{ config('app.name') }}
             </a>
         </div>
         <div class="col-md-6 col-sm-6">
@@ -31,7 +31,7 @@
                         </span>
                     @endif
                     <input id="password" type="password" name="password"
-                    placeholder="Пароль" required >
+                    placeholder="Пароль" required>
                     @if ($errors->has('password'))
                         <span class="help-block">
                             <strong>{{ $errors->first('password') }}</strong>
