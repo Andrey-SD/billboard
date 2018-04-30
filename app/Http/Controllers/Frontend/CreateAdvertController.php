@@ -16,6 +16,10 @@ class CreateAdvertController extends Controller
     
     public function create(Request $request)
     {
+        $this->validate($request, [
+            'title' => 'required|max:128',
+            'description' => 'required|max:1024'
+        ]);
         $new_advert = Advert::create(array(
             'title'  => $request->title,
             'description' => $request->description,

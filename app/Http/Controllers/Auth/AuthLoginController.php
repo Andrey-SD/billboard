@@ -13,7 +13,7 @@ class AuthLoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
+            'name' => 'required|max:32',
             'password' => 'required'
         ]);
         $user = User::where('name', $request->name)->first();

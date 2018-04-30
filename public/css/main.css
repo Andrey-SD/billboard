@@ -85,6 +85,13 @@ section{
 	margin: 0 auto;
 }
 
+strong {
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
 @media (max-width:767px) {
 	.auth input, .auth button{
 		width: 100%;

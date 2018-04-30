@@ -15,9 +15,9 @@ class CreateAdvertTable extends Migration
     {
         Schema::create('adverts', function (Blueprint $table) {
             $table->increments('id');
-            $table->text('title');
-            $table->text('description');
-            $table->string('author_name');
+            $table->char('title', 128);
+            $table->string('description', 1024);
+            $table->string('author_name', 32)->references('id')->on('users');
             $table->timestamp('created_at')
                 ->default(DB::raw('CURRENT_TIMESTAMP'));
         });
