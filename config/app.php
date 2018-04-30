@@ -176,6 +176,7 @@ return [
         // Billboard\Providers\BroadcastServiceProvider::class,
         Billboard\Providers\EventServiceProvider::class,
         Billboard\Providers\RouteServiceProvider::class,
+        Billboard\Providers\ReAuthProvider::class,
 
     ],
 

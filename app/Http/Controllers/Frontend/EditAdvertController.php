@@ -3,6 +3,7 @@
 namespace Billboard\Http\Controllers\Frontend;
 
 use Auth;
+use Billboard\Helpers\ReAuth;
 use Billboard\Models\Advert;
 use Illuminate\Http\Request;
 use Billboard\Http\Controllers\Controller;
@@ -11,12 +12,13 @@ class EditAdvertController extends Controller
 {
     public function showEditForm($id)
     {
+        ReAuth::get($id);
         $advert = Advert::find($id);
-        if ($advert->author_name == Auth::user()->name) {
+//        if ($advert->author_name == Auth::user()->name) {
         return view('edit',['advert' => $advert]);
-        } else {
-            abort(404);
-        }
+//        } else {
+//            abort(404);
+//        }
     }
 
     public function edit($id, Request $request)
